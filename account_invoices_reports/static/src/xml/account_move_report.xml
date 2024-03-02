@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+	<t t-name="InvoiceSearchBar" owl="1">
+        <h1>SEARCH BAR</h1>
+        <h4><t t-esc="state.report_name"/></h4>
+        <!--        SHOW ICON BUTTON TO CHANGE SHOW STATE AND CONTENT-->
+        <!--        LETS GO!-->
+        <t t-if="state.show">
+				<i
+                    class="fa fa-eye-slash"
+                    t-on-click="toggleStateGeneralShow"
+                    style="font-size: 30px"
+                />
+			</t>
+        <t t-else="">
+				<i class="fa fa-eye" t-on-click="toggleStateGeneralShow" style="font-size: 30px"/>
+			</t>
+	</t>
+    <t t-name="InvoiceReportHeader" owl="1">
+		<thead>
+			<tr>
+				<th>
+					Name
+				</th>
+                <th>
+					Customer
+				</th>
+                <th>
+					Reference
+				</th>
+                <th>
+					Amount
+				</th>
+                <th>State</th>
+			</tr>
+		</thead>
+	</t>
+    <t t-name="InvoiceLiveReportLines" owl="1">
+        <t t-foreach="state.allInvoicesData" t-as="invoice">
+<!--            Show lines if show on report equal to show var in state widget-->
+            <t t-if="invoice.show_on_report == state.show">
+                <tr>
+                <td>
+                    <t t-esc="invoice.name"/>
+                </td>
+                    <td>
+                    <t t-esc="invoice.partner_id"/>
+                </td>
+                    <td>
+                    <t t-esc="invoice.ref"/>
+                </td>
+                    <td>
+                    <t t-esc="invoice.amount_total"/>
+                </td>
+                    <td>
+                   <span class="badge badge-dark"><t t-esc="invoice.state"/></span>
+                        <i
+                            class="fa fa-comments"
+                            t-on-click="validateInvoice"
+                            t-att-data-id="invoice.id"
+                            style="font-size: 30px"
+                        />
+                        <i
+                            class="fa fa-eye-slash"
+                            t-on-click="toggleStateLineShow"
+                            t-att-data-id="invoice.id"
+                            style="font-size: 30px"
+                        />
+
+                </td>
+            </tr>
+            </t>
+
+        </t>
+	</t>
+    <t t-name="InvoiceReportTable" owl="1">
+		<div class="table-responsive">
+			<div class="table-container">
+				<table class="table table-bordered">
+					<t t-call="InvoiceReportHeader"/>
+                    <tbody>
+                        <t t-call="InvoiceLiveReportLines"/>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</t>
+    <t t-name="account_invoices_reports.OWLAccountMoveReports" owl="1">
+		<div class="o_content">
+			<div class="container-fluid">
+				<div class="row" id="controlPanel">
+					<div class="col-md-4">
+					</div>
+                    <div class="col-md-8 search_container">
+						<t t-call="InvoiceSearchBar"/>
+					</div>
+				</div>
+                <div class="row">
+                    <div class="col-md-12">
+						<div id="container">
+							<t t-call="InvoiceReportTable"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+</templates>

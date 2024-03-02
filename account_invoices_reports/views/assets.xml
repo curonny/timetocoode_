@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+    id="account_move_report_owl"
+    inherit_id="web.assets_backend"
+    active="True"
+  >
+        <xpath expr="." position="inside">
+            <script
+        type="text/javascript"
+        src="/account_invoices_reports/static/src/js/account_move_report.js"
+      />
+            <link
+        rel="stylesheet"
+        type="text/scss"
+        href="/account_invoices_reports/static/src/scss/account_move_report.scss"
+      />
+        </xpath>
+    </template>
+</odoo>
