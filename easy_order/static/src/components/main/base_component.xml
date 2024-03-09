@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+<!--    Very important define owl=1 in template declaration -->
+    <t t-name="owl.EasyOrder" owl="1">
+        <!--        This is the main component of easy order-->
+        <body class="o_web_client">
+            <div class="row">
+            <div class="col-md-6">
+                <p>actions</p>
+            </div>
+                <div class="col-md-6">
+                    <t t-if="state.products" t-foreach="state.products" t-as="product" t-key="product.id">
+                        <div class="grid-container">
+                            <EasyOrderProducts product="product"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+    </body>
+    </t>
+</templates>

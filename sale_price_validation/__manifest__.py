@@ -2,7 +2,7 @@
     "name": "Odoo Sale Price validation",
     "summary": """
         Odoo Move Report.""",
-    "author": "Ronny Montano <<rmontano1992@gmail.com>>",
+    "author": "Time to coode",
     "category": "Sale",
     "version": "17.0.0.1.0",
     "license": "OPL-1",

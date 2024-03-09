@@ -1,0 +1,15 @@
+<templates>
+    <div t-name="owl.EasyOrderProducts" owl="1">
+        <body class="o_web_client">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <t t-esc="props.product.name"/>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </div>
+</templates>
