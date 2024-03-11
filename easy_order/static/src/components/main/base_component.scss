@@ -3,3 +3,8 @@ display:grid;
 grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 gap:20px;
 }
+
+.all-products{
+overflow-y: auto;
+max-height: calc(100vh - 50px);
+}
