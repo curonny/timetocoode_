@@ -5,8 +5,18 @@
         <!--        This is the main component of easy order-->
         <body class="o_web_client">
             <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <p>actions</p>
+            </div>
+                <div class="col-md-3">
+                <p>Shopping card</p>
+                    <t t-if="state.shoppingCart" t-foreach="state.shoppingCart" t-as="product" t-key="product.id">
+                    <EasyOrderProductsShoppingCart product="product"/>
+
+                  </t>
+                    <span>
+                            <b>Amount total:<t t-esc="state.amount_total"/></b>
+                        </span>
             </div>
                 <div class="col-md-6 all-products">
                     <div class="input-group">
@@ -17,7 +27,7 @@
                          style="padding: 20px;margin-right:10px;overflow-y: scroll ">
  <t t-if="state.products" t-foreach="state.products" t-as="product" t-key="product.id">
                         <div class="grid-container">
-                            <EasyOrderProducts product="product"/>
+                            <EasyOrderProducts product="product" addToCard.bind="addToCard"/>
                         </div>
                     </t>
                     </div>
