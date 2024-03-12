@@ -21,11 +21,16 @@ static props = {
         },
     },
     addToCard: Function,
+    removeFromCard: Function,
 
 };
 
 addToCard(){
     this.props.addToCard(this.props.product.id);
+}
+
+removeFromCard(){
+    this.props.removeFromCard(this.props.product.id);
 }
 
 }

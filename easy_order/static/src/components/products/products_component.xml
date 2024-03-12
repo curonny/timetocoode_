@@ -11,8 +11,7 @@
                 </div>
                 <div class="button-container">
                     <button class="btn btn-primary button-actions" t-on-click="addToCard">+</button>
-                    <button class="btn btn-primary button-actions" t-on-click="addToCard">-</button>
-
+                    <button class="btn btn-primary button-actions" t-on-click="removeFromCard">-</button>
                 </div>
             </div>
         </div>

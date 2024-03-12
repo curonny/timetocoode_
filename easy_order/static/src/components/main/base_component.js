@@ -50,6 +50,23 @@ export class EasyOrder extends Component {
         this.state.products = await this.orm.searchRead(this.productModel, [["name", "ilike", textProduct]], ["name", "list_price","standard_price"])
     }
 
+    removeFromCard(productId){
+        const productIndex = this.state.shoppingCart.findIndex(product => product.id === productId);
+        if (productIndex!==-1){
+        if(this.state.shoppingCart[productIndex].quantity>=1){
+          this.state.shoppingCart[productIndex].quantity -= 1;
+
+        }else{
+            this.state.shoppingCart.splice(productIndex,1);
+        }
+        }else{
+            this.notificationService.add("Product not found in card");
+        }
+         this.updateAmountTotal();
+    }
+    updateAmountTotal(){
+        this.state.amount_total = this.state.shoppingCart.reduce((total, product) => total + (product.price_subtotal), 0);
+    }
     addToCard(productId){
 
         const productIndex = this.state.products.findIndex(product => product.id === productId);
@@ -69,7 +86,7 @@ export class EasyOrder extends Component {
             this.state.shoppingCart[productInCartIndex].quantity += 1;
             this.state.shoppingCart[productInCartIndex].price_subtotal = this.state.shoppingCart[productInCartIndex].list_price * this.state.shoppingCart[productInCartIndex].quantity;
         }
-        this.state.amount_total = this.state.shoppingCart.reduce((total, product) => total + (product.price_subtotal), 0);
+        this.updateAmountTotal();
         this.notificationService.add("Product "+ this.state.products[productIndex].name + " added to card");
     }
 }

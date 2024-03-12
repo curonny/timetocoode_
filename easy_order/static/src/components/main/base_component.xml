@@ -27,7 +27,8 @@
                          style="padding: 20px;margin-right:10px;overflow-y: scroll ">
  <t t-if="state.products" t-foreach="state.products" t-as="product" t-key="product.id">
                         <div class="grid-container">
-                            <EasyOrderProducts product="product" addToCard.bind="addToCard"/>
+                            <EasyOrderProducts product="product" addToCard.bind="addToCard"
+                                               removeFromCard.bind="removeFromCard"/>
                         </div>
                     </t>
                     </div>
