@@ -9,6 +9,10 @@
                 <p>actions</p>
             </div>
                 <div class="col-md-6 all-products">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
+                               t-ref="search-input" t-on-keyup="searchProducts"/>
+                    </div>
                     <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4"
                          style="padding: 20px;margin-right:10px;overflow-y: scroll ">
  <t t-if="state.products" t-foreach="state.products" t-as="product" t-key="product.id">

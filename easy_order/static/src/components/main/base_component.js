@@ -10,7 +10,7 @@ import { getDefaultConfig } from "@web/views/view";
 import { useService } from "@web/core/utils/hooks";
 
 //UseState is a hook, defined to add reactivity to components
-import { Component, useSubEnv, useState } from "@odoo/owl";
+import { Component, useSubEnv, useState,useRef,onWillStart } from "@odoo/owl";
 import { EasyOrderProducts } from "../products/products_component";
 
 // Easy Order will be a actions client to create purchase order and sale order more easy and quick
@@ -31,9 +31,21 @@ export class EasyOrder extends Component {
     this.state = useState({
         products:[],
     })
-    this.state.products = useService("easy_order.getProducts");
-  }
+    this.productModel = 'product.template'
+    this.orm = useService("orm");
+    this.searchInput = useRef('search-input');
+    onWillStart(async () => {
+        await this.getAllProducts()
+    })
 
+  }
+    async getAllProducts(){
+        this.state.products = await this.orm.searchRead(this.productModel, [["detailed_type", "!=", "service"]], ["name", "list_price","standard_price"])
+    }
+    async searchProducts(){
+        const textProduct = this.searchInput.el.value;
+        this.state.products = await this.orm.searchRead(this.productModel, [["name", "ilike", textProduct]], ["name", "list_price","standard_price"])
+    }
 }
 
 // In this case, we are assigning a xml template to js component

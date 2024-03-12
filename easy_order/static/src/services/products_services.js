@@ -7,7 +7,7 @@ export const getOrmProducts = {
   async start(env, { rpc, orm }) {
     const data = await orm.searchRead(
       "product.template",
-      [],
+      [["detailed_type", "!=", "service"]],
       [ "name", "list_price","standard_price" ]
     );
     return data;
