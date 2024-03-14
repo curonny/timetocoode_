@@ -47,7 +47,7 @@ export class EasyOrder extends Component {
     }
     async searchProducts(){
         const textProduct = this.searchInput.el.value;
-        this.state.products = await this.orm.searchRead(this.productModel, [["name", "ilike", textProduct]], ["name", "list_price","standard_price"])
+        this.state.products = await this.orm.searchRead(this.productModel, [["name", "ilike", textProduct],["detailed_type", "!=", "service"]], ["name", "list_price","standard_price","image_128"])
     }
 
     removeFromCard(productId){
@@ -60,7 +60,7 @@ export class EasyOrder extends Component {
             this.state.shoppingCart.splice(productIndex,1);
         }
         }else{
-            this.notificationService.add("Product not found in card");
+            this.notificationService.add(("Product not found in card"), { type: "danger" });
         }
          this.updateAmountTotal();
     }

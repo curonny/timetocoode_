@@ -1,39 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates xml:space="preserve">
 <!--    Very important define owl=1 in template declaration -->
-    <t t-name="owl.EasyOrder" owl="1">
-        <!--        This is the main component of easy order-->
-        <body class="o_web_client">
-            <div class="row">
-            <div class="col-md-3">
-                <p>actions</p>
-            </div>
-                <div class="col-md-3">
-                <p>Shopping card</p>
-                    <t t-if="state.shoppingCart" t-foreach="state.shoppingCart" t-as="product" t-key="product.id">
-                    <EasyOrderProductsShoppingCart product="product"/>
+    <t t-name="CartTable" owl="1">
+        <div class="ticket-cart">
+            <table>
+        <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Price unit</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 <t t-if="state.shoppingCart" t-foreach="state.shoppingCart" t-as="product" t-key="product.id">
+                     <EasyOrderProductsShoppingCart product="product"/>
+                 </t>
+             </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <strong>Amount total</strong>
+                        </td>
+                        <td>
+                            <strong><t t-esc="state.amount_total"/></strong>
+                        </td>
+                    </tr>
+                </tfoot>
+         </table>
+        </div>
+        </t>
 
-                  </t>
-                    <span>
-                            <b>Amount total:<t t-esc="state.amount_total"/></b>
-                        </span>
+    <t t-name="owl.EasyOrder" owl="1">
+<!--        This is the main component of easy order-->
+        <body class="o_web_client">
+    <div class="row">
+        <div class="col-md-3"/>
+        <div class="col-md-3"/>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search products"
+                       aria-label="Search"
+                       t-ref="search-input" t-on-keyup="searchProducts"/>
+                <span class="search-icon">
+                    <i class="fa fa-fw fa-search"/>
+                </span>
             </div>
+        </div>
+    </div>
+            <div class="row">
+        <div class="col-md-3">
+            <p>actions</p>
+        </div>
+                <div class="col-md-3">
+            <t t-call="CartTable"/>
+
+
+        </div>
                 <div class="col-md-6 all-products">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" aria-label="Search"
-                               t-ref="search-input" t-on-keyup="searchProducts"/>
-                    </div>
-                    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4"
-                         style="padding: 20px;margin-right:10px;overflow-y: scroll ">
- <t t-if="state.products" t-foreach="state.products" t-as="product" t-key="product.id">
-                        <div class="grid-container">
-                            <EasyOrderProducts product="product" addToCard.bind="addToCard"
-                                               removeFromCard.bind="removeFromCard"/>
-                        </div>
+
+            <div class="container">
+                <div class="row" id="allProducts">
+
+                    <t t-if="state.products" t-foreach="state.products" t-as="product" t-key="product.id">
+                        <EasyOrderProducts product="product" addToCard.bind="addToCard"
+                                           removeFromCard.bind="removeFromCard"/>
+
                     </t>
-                    </div>
                 </div>
+
             </div>
-    </body>
-    </t>
-</templates>
+        </div>
+    </div>
+</body>
+</t>
+        </templates>

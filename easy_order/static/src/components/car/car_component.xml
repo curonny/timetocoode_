@@ -1,19 +1,14 @@
-<templates>
-    <div t-name="owl.EasyOrderProductsShoppingCart" owl="1">
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <i>
-                    <t t-esc="props.product.name"/>
-                </i>
-                X
-                <t t-esc="props.product.quantity"/>
-
-                <span class="badge badge-primary badge-pill">
-                    <t t-esc="props.product.price_subtotal"/>
-                </span>
-
-            </li>
-        </ul>
-
-    </div>
-</templates>
+<tr t-name="owl.EasyOrderProductsShoppingCart" owl="1">
+    <td>
+        <t t-esc="props.product.name"/>
+    </td>
+    <td>
+        <t t-esc="props.product.quantity"/>
+    </td>
+    <td>
+        <t t-esc="props.product.list_price"/>
+    </td>
+    <td>
+        <t t-esc="props.product.price_subtotal"/>
+    </td>
+</tr>
