@@ -10,7 +10,7 @@
     "currency": "EUR",
     'assets': {
         'point_of_sale._assets_pos': [
-            'pos_product_create/static/src/**/*',
+            'product_pos_create_item/static/src/**/*',
         ],
     },
 }

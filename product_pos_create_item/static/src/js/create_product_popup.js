@@ -10,7 +10,7 @@ import { useAsyncLockedMethod } from "@point_of_sale/app/utils/hooks";
 import { Input } from "@point_of_sale/app/generic_components/inputs/input/input";
 
 export class CreateProductPopup extends AbstractAwaitablePopup {
-    static template = "pos_product_create.CreateProductPopup";
+    static template = "product_pos_create_item.CreateProductPopup";
     static components = { Input };
     setup() {
         super.setup();
