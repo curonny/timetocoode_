@@ -17,7 +17,7 @@ static props = {
     product:{
         type: Object,
         shape: {
-            id:Number,name:String,list_price:Number,standard_price:Number
+            id:Number,name:String,list_price:Number,standard_price:Number,image_512:String
         },
     },
     addToCard: Function,
