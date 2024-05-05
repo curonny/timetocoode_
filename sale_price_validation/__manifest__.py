@@ -6,7 +6,7 @@
     "category": "Sale",
     "version": "17.0.0.1.0",
     "license": "OPL-1",
-    "price": 8,
+    "price": 5,
     "currency": "EUR",
     "depends": ["sale", "sale_management"],
 

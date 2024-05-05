@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_product_create.CreateProductPopup">
+        <div class="popup">
+            <main class="modal-body">
+                <div class="d-flex flex-column">
+
+                <div class="row">
+                        <div class="col-md-6">
+                            <label for="detailed_type">Product type:</label>
+                        </div>
+                    <div class="col-md-6">
+                            <select class="form-select" id="productType" aria-label="Product type"
+                                    t-ref="type_product"
+                                    name="productType"
+                            >
+                                 <option value="service">Service</option>
+                                <option value="consu">Consumable</option>
+                                <option value="product">Product</option>
+</select>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="name">Name:</label>
+                        </div>
+                        <div class="col-md-6">
+                               <input type="text" class="form-control"
+                                      id="name"
+                                      name="name"
+                                      t-model="state.name"
+                                      placeholder="Product name..."
+                                      required=""/>
+
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="name">Barcode:</label>
+                        </div>
+                        <div class="col-md-6">
+                               <input type="text" class="form-control"
+                                      id="barcode"
+                                      name="barcode"
+                                      t-model="state.barcode"
+                                      placeholder="QWERTYKJHG92..."
+                                      required=""/>
+
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="price">Price:</label>
+                        </div>
+                        <div class="input-amount col-md-6">
+                         <input type="number" step="any" class="form-control"
+                                id="price"
+                                t-model="state.price"
+                                name="price"
+                                placeholder="Product price"
+                                required=""/>
+
+                    </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="footer modal-footer">
+                <button class="button confirm btn btn-lg btn-primary"
+                        t-on-click="confirm"
+                        t-att-disabled="!env.utils.isValidFloat(state.price) || !state.name || !state.barcode">
+                    Confirm
+                </button>
+                <button class="button cancel btn btn-lg btn-secondary" t-on-click="cancel">
+                    Discard
+                </button>
+            </footer>
+        </div>
+    </t>
+
+</templates>
