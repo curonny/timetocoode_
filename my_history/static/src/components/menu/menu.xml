@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="my_history.Menu">
+     <Dropdown position="'bottom-end'" menuClass="`p-2 pb-3`">
+          <t t-set-slot="toggler">
+                 <i class="fa fa-star" role="img"
+                    aria-label="Favorite"/>
+            </t>
+         <t t-set-slot="default">
+                <div class="o_att_menu_container d-flex flex-column gap-4">
+                    <div class="d-flex flex-column gap-3">
+                        <t t-foreach="this.state.favorites" t-as="favorite" t-key="favorite.favorite_id">
+                            <a href="#" t-on-click="() => this.onToggleFavorite(favorite)"> <t t-esc="favorite.name"/></a>
+                    </t>
+                    </div>
+                </div>
+            </t>
+        </Dropdown>
+</t>
+
+</templates>

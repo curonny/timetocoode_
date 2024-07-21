@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="web_planner.PlannerDialog">
+    <Dialog size="'md'" title="'PlannerDialog'" modalRef="modalRef">
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <span class="mx-3 mb-3">Do you really want to delete this preview?</span>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+            <p class="mx-3 mb-3">Do you really want to delete this preview?</p>
+        </Dialog>
+</t>
+</templates>

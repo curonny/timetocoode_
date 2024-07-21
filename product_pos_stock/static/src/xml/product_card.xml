@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="product_pos_stock.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-content')]" position="after">
+            <t t-set="product_stock" t-value="getStockByProduct(props.productId)"/>
+            <span class="badge badge-pill badge-primary"> Available: <t t-esc="product_stock.qty_available"/></span>
+            <span class="badge badge-pill badge-secondary"> Forecasted: <t t-esc="product_stock.virtual_available"/></span>
+        </xpath>
+    </t>
+</templates>
